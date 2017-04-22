@@ -42,8 +42,11 @@
 body {
     font: 18px/1.4 sans-serif;
     background-color: #ffffff;
+	
 }
-
+.spacer{
+	padding-left:5%;
+}
 nav {
     box-shadow: 2px 2px 10px #888888;
 }
@@ -86,7 +89,7 @@ nav>ul>li:first-child {
 .content {
     background-color: white;
     box-shadow: 2px 2px 10px #888888;
-    width:60%;
+    width:55%;
   
 }
 
@@ -140,24 +143,46 @@ th {
 	box-shadow: 2px 2px 10px #888888;
 
 }
+.studentlist{
+	width: 40.6%;
+	margin: 0 auto;
+	text-align:center;
+	display: table;
+	box-shadow: 2px 2px 10px #888888;
+	padding-left:10%;
+	padding-right:10%;
+}
 td textarea {
     width: 90%;
     height: 100%;
 	resize:none;
 }
-.sendComment{
+
+.active{
+	float:left;
+	
+}
+.inactive{
+	float:right;
+}
+.TypeOfDrive{
+	display:inline-block;
+}
+.reminder{
 	width:100%;
    display: flex;
    justify-content: center;
    align-items:center;
-	
 }
-.sendComment textarea {
+.reminder textarea{
 	width:90%;
 	height:50px;
 }
-.sendComment input {
+.reminder input{
 	width:10%;
 	height:50px;
+}
+textarea{
+	resize:none;
 }
 /*Stole some animation stuff from https://codepen.io/shshaw/*/

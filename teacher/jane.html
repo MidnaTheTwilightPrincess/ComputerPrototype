@@ -1,0 +1,116 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Scores</title>
+    <link rel="shortcut icon" href="../car.ico">
+    <link href="style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+</head>
+
+<body>
+<nav>
+        <ul>
+            <li class="sub-menu-parent">
+                <a href="index.html">Home</a></li>
+
+            <li class="sub-menu-parent">
+                <a href="#">Students</a>
+                <ul class="sub-menu">
+                    <li><a href="list.html">Drive Scores</a></li>
+                   
+                </ul>
+            </li>
+
+            <li class="sub-menu-parent"><a href="#">Jane Doe</a>
+                <ul class="sub-menu">
+                    <li><a href="jane.html">Drive Scores</a></li>
+					 <li><a href="janeinfo.html">Personal Info</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+<div class="loghours">
+        <h3>New Entry</h3>
+        <div class="hourcontent">
+            <div>
+                <br>
+                <label>Date: </label> <input type="text"><br><br>
+				<div class="TypeOfDrive">
+				
+                <label>Type of Instruction: </label>
+				<select name="Type">
+				<option value="BTW">BTW</option>
+				<option value="OBS">OBS</option>
+				<option value="BTWOBS">BTW + OBS</option>
+				</select>
+				</div><br><br>
+				
+                <label>Time: </label><input type="text"><br><br>
+                <label>Lesson Name: </label> <input type="text"><br><br>
+				<div class="TypeOfDrive">
+				
+                <label>Score: </label>
+				<select name="Type">
+				<option value="1N">1-</option>
+				<option value="1">1</option>
+				<option value="15">1.5</option>
+				<option value="2N">2-</option>
+				<option value="2">2</option>
+				<option value="25">2.5</option>
+				<option value="3N">3-</option>
+				<option value="3">3</option>
+				<option value="35">3.5</option>
+				<option value="4N">4-</option>
+				<option value="4">4</option>
+				<option value="45">4.5</option>
+				<option value="5N">5-</option>
+				<option value="5">5</option>
+				</select>
+				</div><br><br>
+				<div class="TypeOfDrive">
+				
+                <label>Pass/Fail: </label>
+				<select name="Type">
+				<option value="Pass">Pass</option>
+				<option value="Fail">Fail</option>
+				</select>
+				</div><br><br>
+                <label>Comments: <textarea rows="4" cols="30">Type Comments Here (Optional) </textarea></label><br><br>
+                
+                <div class="addbutton"><input type="submit" value="Add Entry"></div><br>
+            </div>
+        </div>
+    </div>
+<h1>Jane Doe's Scores</h1>
+<div class="spacer">
+<div class="content">
+      <p>  <table>
+  <tbody><tr>
+    <th>Date:</th>
+    <th>Type of Instruction:</th>
+    <th>Time:</th>
+    <th>Lesson:</th>
+    <th>Score:</th>
+	<th>Pass/Fail</th>
+  </tr>
+  <tr>
+    <td>4/14</td>
+    <td>BTW</td>
+    <td>40 Minutes</td>
+    <td>Rural Drive 1</td>
+    <td>1</td>
+	<td>Fail</td>
+  </tr>
+   <tr>
+  <td colspan="6"> Comments: </td></tr><tr>
+  <td colspan="6"> You need to practice a lot more. </td>
+  </tr>
+  <tr>
+  <td colspan="6"><textarea>Type your comment here</textarea><input id="sendComment" type="submit" value="Send"</td></tr>
+</tbody></table></p>
+    </div></div>
+
+
+
+
+</body></html>
