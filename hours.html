@@ -8,13 +8,25 @@
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script>
+    var RealTime = 40;
+    function timeKeeper(Adder) {
+      RealTime += Adder;
+    }
         $(function() {
 
             $("#button").click(function() {
-                $("#sent").append("<div>" + "<table><tbody><tr><th>Date:</th><th>Time:</th><th>Weather:</th><th>Type:</th><th>Comments:</th></tr>" +
-                    "<td>" + $("#date").val() + "</td><td>" + $("#time").val() +
+              if($("#date").val() && $("#time").val() && $("#type").val() && $("#password").val()){
+              var time;
+                $("#sent").append("<div><table><tr><td>" + $("#date").val() + "</td><td>" + $("#time").val() +
                     "</td><td>"  +  "W.I.P" + "</td><td>"  + $("#type").val() + "</td><td>"
-                    + $("#comments").val() + "</td>" +  "</div>");
+                    + $("#comments").val() + "</td></tr></table></div>" );
+                    time = parseInt($("#time").val());
+                    timeKeeper(time);
+                      $("#test").replaceWith("<p id='test'>" +   RealTime + "</p>");
+}
+            else {
+                $("#error").replaceWith("<p style='color:red' id='error'>Please Fill Out All Fields!</p>");
+            }
             });
 
         });
@@ -54,17 +66,19 @@
                 <label>Date: </label> <input id="date" type="text"><br><br>
                 <label>Time: </label> <input id="time" type="text"><br><br>
                 <label>Weather: </label> <input id="weather" type="checkbox">Snow <input type="checkbox">Rain <input type="checkbox">Sun <br><br>
-                <label>Type of Drive: </label> <input id="type" type="text"><br><br>
+                <label>Day/Night: </label> <input id="type" type="text"><br><br>
                 <label>Comments: <textarea  id="comments" rows="4" cols="30" placeholder="Type Comments Here (Optional)"></textarea></label><br><br>
                 <label>Parent Password: </label> <input id="password" type="text"><br><br>
                 <div class="addbutton"><input id="button" type="submit" value="Add Entry"></div><br>
             </div>
+            <div>
+              <p id="error"></p>
+            </div>
         </div>
     </div>
     <h1> Log Hours </h1><br>
-    <div class="content">
+    <div id ="sent" class="content">
         <table>
-            <tbody>
                 <tr>
                     <th>Date:</th>
                     <th>Time:</th>
@@ -72,21 +86,20 @@
                     <th>Type:</th>
                     <th>Comments:</th>
                 </tr>
+              </table>
+              <table>
                 <tr>
                     <td>4/14</td>
                     <td>40</td>
                     <td>Rain</td>
-                    <td>City</td>
+                    <td>Day</td>
                     <td>Still needs work!</td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
-    <div id="sent" class="content">
+              </table>
+
 
     </div>
-    <p>Total Time: 40 Minutes</p>
-
+  <div style="display:inline-flex">  <p>Total Time: </p><p id="test">40 </p><p> Minutes</p> </div>
 
 
 </body>

@@ -86,8 +86,7 @@ nav>ul>li:first-child {
 .content {
     background-color: white;
     box-shadow: 2px 2px 10px #888888;
-    width:60%;
-  
+    width: 60%;
 }
 
 h1 {
@@ -96,68 +95,87 @@ h1 {
 
 .loghours {
     box-shadow: 2px 2px 10px #888888;
-      background-color: #A1B7E1;
-    float:right;
+    background-color: #A1B7E1;
+    float: right;
     width: 33.33%;
-    text-align:center;
-	height:100%;
+    text-align: center;
+    height: 100%;
 }
-.loghours .hourcontent{
-  background-color: #DBE6FC;
-  text-align:left;
-  height:100%;
+
+.loghours .hourcontent {
+    background-color: #DBE6FC;
+    text-align: left;
+    height: 100%;
 }
+
 .loghours .hourcontent label {
-  margin-left: 10px;
+    margin-left: 10px;
 }
-label textarea{
- vertical-align: middle;
-}
-.addbutton{
-text-align:center;
 
+label textarea {
+    vertical-align: middle;
 }
+
+.addbutton {
+    text-align: center;
+}
+
 .addbutton input {
-	width:100%;
+    width: 100%;
 }
- th, td, tr{
-  border: solid 1px black;
-  text-align:center;
-}
-td{
-width:1%;
-}
-th {
-  background-color:#A1B7E1;
-}
-.underline{
-	text-decoration:underline;
-}
-.contentcenter{
-	width: 66.6%;
-	margin: 0 auto;
-	text-align:center;
-	box-shadow: 2px 2px 10px #888888;
 
+table {
+    table-layout: fixed;
+    width: 100%;
 }
+
+th, td, tr {
+    border: solid 1px black;
+    text-align: center;
+}
+
+td {
+    width: 20%;
+    word-wrap: break-word;
+}
+
+th {
+    background-color: #A1B7E1;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.contentcenter {
+    width: 66.6%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 2px 2px 10px #888888;
+}
+
 td textarea {
     width: 90%;
     height: 100%;
-	resize:none;
+    resize: none;
 }
-.sendComment{
-	width:100%;
-   display: flex;
-   justify-content: center;
-   align-items:center;
-	
+
+.sendComment {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .sendComment textarea {
-	width:90%;
-	height:50px;
+    width: 90%;
+    height: 50px;
 }
+
 .sendComment input {
-	width:10%;
-	height:50px;
+    width: 10%;
+    height: 50px;
 }
+
+
 /*Stole some animation stuff from https://codepen.io/shshaw/*/
