@@ -4,8 +4,20 @@
     <title>Home</title>
     <link rel="shortcut icon" href="../car.ico">
     <link href="style.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <script>
+  var date = new Date();
+     date = "<strong>" + date.getMonth() + "/" + date.getDate() + ": </strong>";
+  $(function() {
 
+      $("#button").click(function() {
+
+              $("#here").append("<br><div>" + date + $("#reminders").val() +  "</div>");
+      });
+
+  });
+  </script>
 </head>
 
 <body>
@@ -27,9 +39,10 @@
 <h1>Home</h1>
 <div class="contentcenter">
 	<h3>Reminders:</h3>
-  <p><strong>4/19:</strong> Homework- Complete signs worksheet by Monday!</p>
-  <div class="reminder"> <textarea>Type Reminder Here </textarea><input  type="submit" value="Send">
-</div>
+  <p><strong>2/19:</strong> Homework- Complete signs worksheet by Monday!</p>
+<div id="here"></div>
+  <div class="reminder"> <textarea id="reminders" placeholder="Type Reminder Here"></textarea><input id="button" type="submit" value="Send">
+</div></div>
 
 
 

@@ -8,56 +8,63 @@
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script>
-    var RealTime = 40;
-    function timeKeeper(Adder) {
-      RealTime += Adder;
-    }
-    function megaTest(){
-      if(!$("#date").val()){
-        $("#a1").replaceWith("<label style='color:red' id='a1'>" + "*" +  "</label>");
-      }
-      if($("#date").val()){
-        $("#a1").replaceWith("<label style='color:red' id='a1'>" + " " +  "</label>");
-      }
+        var RealTime = 40;
 
-      if(!$("#time").val()){
-        $("#a2").replaceWith("<label style='color:red' id='a2'>" + "*" +  "</label>");
-      }
-      if($("#time").val()){
-        $("#a2").replaceWith("<label style='color:red' id='a2'>" + " " +  "</label>");
-      }
+        function validate(evt) {
+          //Stole this function from http://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
 
-      if(!$("#type").val()){
-        $("#a3").replaceWith("<label style='color:red' id='a3'>" + "*" +  "</label>");
-      }
-      if($("#type").val()){
-        $("#a3").replaceWith("<label style='color:red' id='a3'>" + " " +  "</label>");
-      }
-      if(!$("#password").val()){
-        $("#a4").replaceWith("<label style='color:red' id='a4'>" + "*" +  "</label>");
-      }
-      if($("#password").val()){
-        $("#a4").replaceWith("<label style='color:red' id='a4'>" + " " +  "</label>");
-      }
-    }
+        function timeKeeper(Adder) {
+            RealTime += Adder;
+        }
+
+        function megaTest() {
+            if (!$("#date").val()) {
+                $("#a1").replaceWith("<label style='color:red' id='a1'>" + "*" + "</label>");
+            }
+            if ($("#date").val()) {
+                $("#a1").replaceWith("<label style='color:red' id='a1'>" + " " + "</label>");
+            }
+
+            if (!$("#time").val()) {
+                $("#a2").replaceWith("<label style='color:red' id='a2'>" + "*" + "</label>");
+            }
+            if ($("#time").val()) {
+                $("#a2").replaceWith("<label style='color:red' id='a2'>" + " " + "</label>");
+            }
+
+            if (!$("#password").val()) {
+                $("#a4").replaceWith("<label style='color:red' id='a4'>" + "*" + "</label>");
+            }
+            if ($("#password").val()) {
+                $("#a4").replaceWith("<label style='color:red' id='a4'>" + " " + "</label>");
+            }
+        }
         $(function() {
 
             $("#button").click(function() {
-              if($("#date").val() && $("#time").val() && $("#type").val() && $("#password").val()){
-                megaTest();
-              var time;
-                $("#sent").append("<div><table><tr><td>" + $("#date").val() + "</td><td>" + $("#time").val() +
-                    "</td><td>"  +  "W.I.P" + "</td><td>"  + $("#type").val() + "</td><td>"
-                    + $("#comments").val() + "</td></tr></table></div>" );
+                if ($("#date").val() && $("#time").val() && $("#password").val()) {
+                    megaTest();
+                    var time;
+                    $("#sent").append("<div><table><tr><td>" + $("#date").val() + "</td><td>" + $("#time").val() +
+                        "</td><td>" + $("#weather").val() + "</td><td>" + $("#DayNight").val() + "</td><td>" +
+                        $("#comments").val() + "</td></tr></table></div>");
                     time = parseInt($("#time").val());
                     timeKeeper(time);
-                      $("#test").replaceWith("<p id='test'>" +   RealTime + "</p>");
-                        $("#error").replaceWith("<p style='color:red' id='error'> </p>");
-}
-            else {
-              megaTest();
-                $("#error").replaceWith("<p style='color:red' id='error'>Please Fill Out All Fields!</p>");
-            }
+                    $("#test").replaceWith("<p id='test'>" + RealTime + "</p>");
+                    $("#error").replaceWith("<p style='color:red' id='error'> </p>");
+                } else {
+                    megaTest();
+                    $("#error").replaceWith("<p style='color:red' id='error'>Please Fill Out All Fields!</p>");
+                }
             });
 
         });
@@ -95,42 +102,62 @@
             <div>
                 <br>
                 <label>Date: </label><label id="a1"></label> <input id="date" type="text"><br><br>
-                <label>Time: </label> <label id="a2"></label> <input id="time" type="text"><br><br>
-                <label>Weather: </label> <input id="weather" type="checkbox">Snow <input type="checkbox">Rain <input type="checkbox">Sun <br><br>
-                <label>Day/Night: </label><label id="a3"></label>  <input id="type" type="text"><br><br>
+                <label>Time: </label> <label id="a2"></label> <input onkeypress="validate(event)" id="time" type="text"><br><br>
+                <div>
+
+                    <label>Weather: </label>
+                    <select id="weather" name="Type">
+				                  <option value="Rain">Rain</option>
+				                      <option value="Sun">Sun</option>
+				                          <option value="Snow">Snow</option>
+                                </select></div> <br><br>
+
+
+                <div>
+                    <label>Day/Night: </label>
+                    <select id="DayNight" name="Type">
+                		<option value="Day">Day</option>
+                		<option value="Night">Night</option>
+                    </select></div> <br><br>
+
+
                 <label>Comments: <textarea  id="comments" rows="4" cols="30" placeholder="Type Comments Here (Optional)"></textarea></label><br><br>
-                <label>Parent Password:<label id="a4"></label>  </label> <input id="password" type="text"><br><br>
+                <label>Parent Password:<label id="a4"></label> </label> <input id="password" type="text"><br><br>
                 <div class="addbutton"><input id="button" type="submit" value="Add Entry"></div><br>
             </div>
             <div>
-              <p id="error"></p>
+                <p id="error"></p>
             </div>
         </div>
     </div>
     <h1> Log Hours </h1><br>
-    <div id ="sent" class="content">
+    <div id="sent" class="content">
         <table>
-                <tr>
-                    <th>Date:</th>
-                    <th>Time:</th>
-                    <th>Weather:</th>
-                    <th>Type:</th>
-                    <th>Comments:</th>
-                </tr>
-              </table>
-              <table>
-                <tr>
-                    <td>4/14</td>
-                    <td>40</td>
-                    <td>Rain</td>
-                    <td>Day</td>
-                    <td>Still needs work!</td>
-                </tr>
-              </table>
+            <tr>
+                <th>Date:</th>
+                <th>Time:</th>
+                <th>Weather:</th>
+                <th>Type:</th>
+                <th>Comments:</th>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>4/14</td>
+                <td>40</td>
+                <td>Rain</td>
+                <td>Day</td>
+                <td>Still needs work!</td>
+            </tr>
+        </table>
 
 
     </div>
-  <div style="display:inline-flex">  <p>Total Time: </p><p id="test">40 </p><p> Minutes</p> </div>
+    <div style="display:inline-flex">
+        <p>Total Time: </p>
+        <p id="test">40 </p>
+        <p> Minutes</p>
+    </div>
 
 
 </body>
