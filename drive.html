@@ -1,11 +1,19 @@
 
-<!-- saved from url=(0071)https://midnathetwilightprincess.github.io/ComputerPrototype/drive.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Scores</title>
     <link rel="shortcut icon" href="car.ico">
     <link href="style.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<script>  $(function() {
 
+      $("#button").click(function() {
+              if($("#comments").val()){
+              $("#commenthere").append("<div><p>You: " +  $("#comments").val() +  "</p></div>");
+      }});
+
+  });
+  </script>
 </head>
 
 <body>
@@ -52,11 +60,11 @@
   </tr>
    <tr>
   <td colspan="6"> Comments: </td></tr><tr>
-  <td colspan="6"> Don't turn into the other lane! </td>
+  <td colspan="6"> Mrs. Martin: Don't turn into the other lane! <div id="commenthere"></div> </td>
   </tr>
   <tr>
-  
-  <td colspan="6"><div class="sendcomment"><textarea>Type your comment here</textarea><input type="submit" value="Send"</td></div></tr>
+
+  <td colspan="6"><div class="sendcomment"><textarea id="comments" placeholder="Type your comment here"></textarea><input id="button" type="submit" value="Send"</td></div></tr>
 </tbody></table></p>
     </div>
 
